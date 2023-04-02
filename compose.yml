@@ -1,0 +1,18 @@
+services:
+  zoom:
+    build: .
+    restart: always
+    ports:
+      - 6080:6080
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      - ./recordings:/home/zoomrec/recordings
+      - ./audio:/home/zoomrec/audio
+      - ./meetings.csv:/home/zoomrec/meetings.csv:ro
+    environment:
+      TZ: Asia/Singapore
+      DEBUG: true
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
+      DISPLAY_NAME: ${DISPLAY_NAME}
