@@ -1,9 +1,9 @@
 services:
   zoom:
     build: .
-    restart: always
+    restart: unless-stopped
     ports:
-      - 6080:6080
+      - 6070:6080
     security_opt:
       - seccomp:unconfined
     volumes:

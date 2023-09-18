@@ -1,5 +1,6 @@
-FROM kastldratza/zoomrec
+FROM ghcr.io/kastldratza/zoomrec:master
 
+# Root
 USER 0
 
 RUN apt update && \
